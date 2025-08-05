@@ -16,10 +16,10 @@ a {
 
 /* === site cards === */ 
 .site-card {
-  background-color: #999;
+  background-color: goldenrod;
   padding: 1rem;
   margin-bottom: 1rem;
-  border: 1px solid #222;
+  border: 3px solid black;
   border-radius: 50px; 
 }
 
@@ -31,8 +31,8 @@ a {
 }
 
 .site-card-link:hover .site-card {
-  background-color: #888;
-  box-shadow: 0 0 10px #888;
+  background-color: gold;
+  box-shadow: 0 0 10px gold;
 }
 
 /* === footer === */ 
