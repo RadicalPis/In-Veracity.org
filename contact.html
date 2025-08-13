@@ -1,0 +1,97 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>In-Veracity | Rebirth of Mind</title>
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="/favicons/android-chrome-512x512.png" alt="Brand Logo" class="logo-img">
+                <span>In-Veracity.org</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Overlay Menu -->
+    <div class="overlay">
+        <nav class="overlay-menu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Contact</h1>
+            <p>In-Veracity is a nonprofit devoted to showing others the truth. Join us for a rebirth of mind.</p>
+
+            <h3> Contact us at: </h3>
+            <a href="mailto:inveracity.org@gmail.com">inveracity.org@gmail.com</a>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Inveracity.org All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const overlay = document.querySelector(".overlay");
+
+        menuToggle.addEventListener("click", () => {
+            menuToggle.classList.toggle("active");
+            overlay.classList.toggle("active");
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll(".overlay-menu a").forEach(link => {
+            link.addEventListener("click", () => {
+                menuToggle.classList.remove("active");
+                overlay.classList.remove("active");
+            });
+        });
+
+        // Close when clicking outside menu
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+                menuToggle.classList.remove("active");
+                overlay.classList.remove("active");
+            }
+        });
+    });
+</script>
+
+</html>

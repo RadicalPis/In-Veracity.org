@@ -3,50 +3,145 @@
 <html lang="en">
 
 <head>
-    <title>In-Veracity | See the truth</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/styles.css">
-     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>In-Veracity | Rebirth of Mind</title>
+  <link rel="stylesheet" href="CSS/styles.css" />
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 </head>
 
 <body>
-    <h1> About </h1>
-    <p>Hello! This site is made by two college students who enjoy terminological
+  <header>
+    <nav class="container">
+      <div class="logo">
+        <img src="/favicons/android-chrome-512x512.png" alt="Brand Logo" class="logo-img">
+        <span>In-Veracity.org</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Overlay Menu -->
+  <div class="overlay">
+    <nav class="overlay-menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="container">
+    <section class="hero">
+      <h1>About</h1>
+      <p>Hello! This site is made by two college students who enjoy terminological
         inexactitudes. After seeing a billboard advertising a (poorly made) real cult website, we thought it would be
         fun to make some (fake ones) ourselves! If you’re interested in falsities and parodies, check below for our
-        other sites! </p>
-    
-    <section id="sites">
-      <h1>Our other sites</h1>
+        other sites!
+      </p>
 
-      <!-- Default sites tab, add more as needed -->
-      <a href="../link_folder/site.html" class="site-card-link">
-        <div class="site-card">
-          <h3>Colors are not real</h3>
-          <p> Life is dark, will you accept it? </p>
-        </div>
-      </a>
-      
-      <a href="../link_folder/site.html" class="site-card-link">
-        <div class="site-card">
-          <h3> Birds are real </h3>
-          <p> Birds may be the only real animals </p>
-        </div>
-      </a>
     </section>
 
-    <a href="../index.html"> - Return to the source - </a>
-    <p> </p>
+    <section class="projects container">
+      <h2>Our other sites</h2>
 
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" data-tab="all">All</button>
+        <button class="tab" data-tab="cult">Cult</button>
+        <button class="tab" data-tab="conspiracy">Conspiracy</button>
+        <button class="tab" data-tab="psudo-science">Psudo-science</button>
+      </div>
+
+      <!-- Project grid -->
+      <div class="project-grid">
+        <div class="project-card" data-category="psudo-science">Birds are real - They may be the only real animal</div>
+        <div class="project-card" data-category="psudo-science">Colors are a construct - Life is dark, will you accept it? </div>
+        <div class="project-card" data-category="cult">Cult 1</div>
+        <div class="project-card" data-category="cult">Cult 2</div>
+        <div class="project-card" data-category="conspiracy">conspiracy 1</div>
+        <div class="project-card" data-category="conspiracy">conspiracy 2</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Inveracity.org All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 
-<footer>
-    <p>© 2025 Inveracity.org</p>
-</footer>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const overlay = document.querySelector(".overlay");
+
+    menuToggle.addEventListener("click", () => {
+      menuToggle.classList.toggle("active");
+      overlay.classList.toggle("active");
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll(".overlay-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        menuToggle.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+    });
+
+    // Close when clicking outside menu
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) {
+        menuToggle.classList.remove("active");
+        overlay.classList.remove("active");
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".tab");
+    const projects = document.querySelectorAll(".project-card");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        // Set active tab
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const category = tab.getAttribute("data-tab");
+
+        // Filter projects
+        projects.forEach(project => {
+          if (category === "all" || project.dataset.category === category) {
+            project.style.display = "block";
+          } else {
+            project.style.display = "none";
+          }
+        });
+      });
+    });
+  });
+</script>
 
 </html>
