@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>The Lodge of Returning — Welcome</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            /* Tile the image as background */
+            background-image: url('90s junker.png');
+            /* replace with your actual file path */
+            background-repeat: repeat;
+            background-size: 80px;
+            /* keeps original size */
+            background-attachment: fixed;
+            /* old-school "pinned" vibe */
+            color: white;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+
+        .content {
+            background: rgba(0, 0, 0, 0.7);
+            /* readable overlay */
+            margin: 40px auto;
+            padding: 20px;
+            max-width: 600px;
+            border: 4px dashed yellow;
+            text-align: center;
+        }
+        h1 {
+            font-size: 4em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 
+                3px 3px 0 #000,
+                6px 6px 0 #ff0000,
+                9px 9px 0 #0000ff;
+            transform: skew(-10deg, -5deg) rotate(-2deg);
+            margin: 0.5em 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="page" role="document" aria-label="The Lodge of Returning">
+        <div class="header" role="banner">
+            <div class="logo" aria-hidden="true">
+                <div class="glyph">⊕</div>
+            </div>
+            <div class="title">
+                <div class="main">THE LODGE OF RETURNING</div>
+                <div class="sub">A Gathering of Remembered Things • Founded 1993</div>
+            </div>
+        </div>
+
+        <div class="nav" role="navigation" aria-label="Main navigation">
+            <a href="#home" onclick="navJump('home');return false">Home</a>
+            <a href="#manifest" onclick="navJump('manifest');return false">The Manifesto</a>
+            <a href="#rituals" onclick="navJump('rituals');return false">Rituals</a>
+            <a href="#guestbook" onclick="navJump('guestbook');return false">Guestbook</a>
+            <a href="#leader" onclick="openLeader()">Leader's Word</a>
+            <span style="flex:1"></span>
+            <div class="counter" title="Visitors (local)">
+                <span class="small">Visitors</span>
+                <span id="hit-digits" style="display:flex;gap:4px;margin-left:8px"></span>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- LEFT COLUMN: sidebar widgets -->
+            <div class="col-left" role="complementary" aria-label="Sidebar">
+                <div class="widget">
+                    <h1>Welcome, Seeker</h1>
+                    <p class="small">You have found this page. Treat it as an invitation. Read slowly. Click
+                        thoughtfully.</p>
+                </div>
+
+                <div class="widget" id="antique">
+                    <h3>Now Playing</h3>
+                    <div style="display:flex;gap:10px;align-items:center">
+                        <div class="retro-gif" id="sigil">✠</div>
+                        <div style="flex:1">
+                            <div id="track" style="font-weight:700;color:#dfffdc">Chant: Returner</div>
+                            <div class="small">Click 'Play Chant' to hear a brief looping tone.</div>
+                            <div style="margin-top:8px">
+                                <button id="play-chant">Play Chant</button>
+                                <button id="stop-chant">Stop</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3>Affiliated Pages</h3>
+                    <ul style="margin:0;padding-left:18px;color:#bfffd8">
+                        <li><a href="#">→ The Archive of Quiet Whispers</a></li>
+                        <li><a href="/log.html">→Pilgrim's Log</a></li>
+                        <li><a href="#">→ The Watcher's Index</a></li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h3>Quick Prayer</h3>
+                    <form id="prayerForm" onsubmit="return submitPrayer(event)">
+                        <input id="prayerName" type="text" placeholder="Your Name (or alias)" required />
+                        <div style="height:8px"></div>
+                        <textarea id="prayerText" placeholder="A short offering..." rows="3" required></textarea>
+                        <div style="height:8px"></div>
+                        <button type="submit">Offer</button>
+                        <div style="height:8px"></div>
+                        <div class="small">Entries appear in the Guestbook.</div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: main content -->
+            <div class="col-right" role="main">
+                <div id="home" class="widget">
+                    <div class="marquee-wrap">
+                        <div class="marquee blink" id="marq">WELCOME → SEEKER. THE CIRCLE WATCHES. • BE STILL •</div>
+                    </div>
+
+                    <div class="manifesto" id="manifest">
+                        <h2 style="margin-top:0">The Manifesto of Returning</h2>
+                        <p>
+                            We are a small lodge of those who remember the places between the moments. We collect names,
+                            keep watch for patterns,
+                            and practice the soft mathematics of attention. When the lamps of the world burn too bright,
+                            our circle pulls the
+                            threads toward quiet. You were invited. You are expected.
+                        </p>
+                        <p class="small">— <em>Leader: Elias W. (Founder)</em></p>
+                    </div>
+
+                    <div style="height:12px"></div>
+
+                    <div class="widget" id="rituals">
+                        <h3>Rituals</h3>
+                        <ol style="color:#caffdf;padding-left:18px">
+                            <li><strong>Evening Knot</strong> — Sit with the screen at low brightness for 7 minutes.
+                            </li>
+                            <li><strong>Memory Thread</strong> — Leave one name in our book and whisper it aloud.</li>
+                            <li><strong>Return Count</strong> — Press the <em>Invoke Return</em> button below three
+                                times.</li>
+                        </ol>
+
+                        <div style="margin-top:10px">
+                            <button onclick="invokeReturn()">Invoke Return</button>
+                            <button onclick="resetReturn()">Reset</button>
+                            <span id="invoke-status" class="small" style="margin-left:12px;color:#bfffd8">Idle</span>
+                        </div>
+                    </div>
+
+                    <div class="widget" id="guestbook">
+                        <h3>Guestbook</h3>
+                        <div id="guest-list" class="guest-list" aria-live="polite">
+                            <!-- guest entries populated by JS -->
+                        </div>
+                        <div style="height:8px"></div>
+                        <div class="small">Local-only guestbook — persists in this browser.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer" role="contentinfo">
+            <span>© The Lodge of Returning • Page lovingly produced with table tags & GIFs, 1997 aesthetic restored.
+            </span>
+        </div>
+    </div>
+
+    <!-- Leader modal -->
+    <div class="overlay" id="leaderOverlay" role="dialog" aria-hidden="true">
+        <div class="box" role="document">
+            <button class="close-x" onclick="closeLeader()">Close</button>
+            <h2>Leader's Word</h2>
+            <p style="line-height:1.45">
+                So you are here. We welcome you to learn the soft geometry of remembering. Do not be alarmed by our
+                rituals; they are
+                simple and inward. If you feel uneasy — step away from the screen. If you wish to remain — read on.
+            </p>
+            <p class="small">— Elias</p>
+        </div>
+    </div>
+
+    <script>
+        /* ====== Retro-culty single-file JS ====== */
+        /* All state stored locally (localStorage). No network calls. */
+
+        /* Utilities */
+        const $ = id => document.getElementById(id) || document.querySelector(id);
+
+        /* --- Visitor hit counter (stored locally) --- */
+        const HIT_KEY = 'lodge_hits_v1';
+        function bumpHits() {
+            try {
+                let hits = Number(localStorage.getItem(HIT_KEY) || 0);
+                hits = hits + 1;
+                localStorage.setItem(HIT_KEY, String(hits));
+                renderHits(hits);
+            } catch (e) {
+                console.error('hit counter error', e);
+                renderHits(1);
+            }
+        }
+        function renderHits(hits) {
+            const container = $('hit-digits');
+            container.innerHTML = '';
+            const s = String(hits).padStart(6, '0');
+            for (let ch of s) {
+                const span = document.createElement('span');
+                span.className = 'digit';
+                span.textContent = ch;
+                container.appendChild(span);
+            }
+        }
+
+        /* bump on load */
+        bumpHits();
+
+        /* --- Guestbook persisted locally --- */
+        const GB_KEY = 'lodge_guestbook_v1';
+        function loadGuestbook() {
+            try {
+                const raw = localStorage.getItem(GB_KEY);
+                const list = raw ? JSON.parse(raw) : [];
+                return Array.isArray(list) ? list : [];
+            } catch (e) {
+                console.error('guestbook load', e);
+                return [];
+            }
+        }
+        function saveGuestbook(list) {
+            try {
+                localStorage.setItem(GB_KEY, JSON.stringify(list));
+            } catch (e) {
+                console.error('guestbook save', e);
+            }
+        }
+        function renderGuestbook() {
+            const list = loadGuestbook();
+            const box = $('guest-list');
+            if (!box) return;
+            box.innerHTML = '';
+            if (list.length === 0) {
+                box.innerHTML = '<div class="small">No entries yet. Be the first to offer a name.</div>';
+                return;
+            }
+            list.slice().reverse().forEach(entry => {
+                const el = document.createElement('div');
+                el.className = 'guest-entry';
+                const when = new Date(entry.t).toLocaleString();
+                el.innerHTML = `<div style="font-weight:700;color:#eaffee">${escapeHtml(entry.n)} <span style="font-weight:400;font-size:12px;color:#bfffd8">— ${when}</span></div>
+      <div style="margin-top:6px;color:#dfffe6">${escapeHtml(entry.m)}</div>`;
+                box.appendChild(el);
+            });
+        }
+        function submitPrayer(ev) {
+            ev.preventDefault();
+            const name = $('prayerName').value.trim();
+            const text = $('prayerText').value.trim();
+            if (!name || !text) return false;
+            const list = loadGuestbook();
+            list.push({ n: name, m: text, t: Date.now() });
+            saveGuestbook(list);
+            renderGuestbook();
+            $('prayerName').value = '';
+            $('prayerText').value = '';
+            flashSigil();
+            return false;
+        }
+        renderGuestbook();
+
+        /* safe small HTML escaper */
+        function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
+        /* --- Invoke Return mechanic (harmless visual) --- */
+        let invokeCount = 0;
+        function invokeReturn() {
+            invokeCount++;
+            const status = $('invoke-status');
+            status.textContent = `Invoked ${invokeCount} times`;
+            // visual micro-glitch: pulse the sigil
+            const sig = $('sigil');
+            sig.animate([
+                { transform: 'scale(1) rotate(0)' },
+                { transform: 'scale(1.18) rotate(-10deg)' },
+                { transform: 'scale(1) rotate(0)' }
+            ], { duration: 420, easing: 'ease-out' });
+            // small "ring" — increase hit counter more dramatically as theatrical effect
+            if (invokeCount % 3 === 0) {
+                // theatrical: bump local hits two more times
+                bumpHits(); bumpHits();
+            }
+        }
+        function resetReturn() {
+            invokeCount = 0;
+            $('invoke-status').textContent = 'Idle';
+        }
+
+        /* --- Leader modal --- */
+        function openLeader() {
+            const o = $('leaderOverlay');
+            o.style.display = 'flex';
+            o.setAttribute('aria-hidden', 'false');
+        }
+        function closeLeader() {
+            const o = $('leaderOverlay');
+            o.style.display = 'none';
+            o.setAttribute('aria-hidden', 'true');
+        }
+
+        /* --- retro marquee effect: scroll text by CSS + JS to maintain "early-web" feel --- */
+        (function marqueeTick() {
+            const m = document.querySelector('.marquee');
+            if (!m) return;
+            // simple leftward shift using transform for smoother effect
+            let offset = 0;
+            setInterval(() => {
+                offset -= 2;
+                m.style.transform = `translateX(${offset}px)`;
+                // reset when too far left
+                if (Math.abs(offset) > m.scrollWidth) offset = m.clientWidth;
+            }, 120);
+        })();
+
+        /* --- small sigil flicker on new guest entries --- */
+        function flashSigil() {
+            const s = $('sigil');
+            s.animate([{ opacity: 1 }, { opacity: 0.2 }, { opacity: 1 }], { duration: 520, iterations: 3 });
+        }
+
+        /* --- simple acoustic "chant" using WebAudio (requires user gesture) --- */
+        let audioCtx = null;
+        let chantNodes = [];
+        $('play-chant').addEventListener('click', startChant);
+        $('stop-chant').addEventListener('click', stopChant);
+
+        function startChant() {
+            try {
+                if (audioCtx && audioCtx.state !== 'closed') return;
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                // create 3 detuned oscillators to form a retro lo-fi drone
+                const freqs = [110.0, 138.59, 82.41]; // A2, C#3, E2-ish — minor triad feel
+                const master = audioCtx.createGain();
+                master.gain.value = 0.04;
+                master.connect(audioCtx.destination);
+                chantNodes = freqs.map((f, i) => {
+                    const o = audioCtx.createOscillator();
+                    const g = audioCtx.createGain();
+                    o.type = (i === 1) ? 'triangle' : 'sine';
+                    o.frequency.value = f * (1 + (Math.random() * 0.02 - 0.01)); // tiny detune
+                    g.gain.value = 0.6;
+                    o.connect(g); g.connect(master);
+                    o.start();
+                    return { o, g };
+                });
+                // slow LFO on master gain for breathing effect
+                let t = 0;
+                const lfo = setInterval(() => { t += 0.04; master.gain.value = 0.03 + 0.007 * Math.sin(t); }, 60);
+                chantNodes.push({ lfo });
+                $('play-chant').textContent = 'Chanting…';
+            } catch (e) {
+                console.error('audio start failed', e);
+                alert('Unable to start audio in this browser.');
+            }
+        }
+        function stopChant() {
+            if (!audioCtx) return;
+            try {
+                chantNodes.forEach(n => { if (n.o) try { n.o.stop(); } catch (e) { }; if (n.g) try { n.g.disconnect(); } catch (e) { }; if (n.lfo) clearInterval(n.lfo); });
+                if (audioCtx.close) audioCtx.close();
+            } catch (e) { console.error(e) }
+            audioCtx = null;
+            chantNodes = [];
+            $('play-chant').textContent = 'Play Chant';
+        }
+
+        /* --- small 'vintage' effect: wiggle marquee color occasionally --- */
+        setInterval(() => {
+            const mq = document.querySelector('.marquee');
+            if (!mq) return;
+            if (Math.random() > 0.88) {
+                mq.style.color = '#fff';
+                mq.style.background = 'linear-gradient(90deg,#062,#042)';
+                setTimeout(() => { mq.style.color = ''; mq.style.background = ''; }, 900);
+            }
+        }, 1200);
+
+        /* --- nav jump behavior (scroll to sections) --- */
+        function navJump(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        /* === Accessibility & safety note included on-screen === */
+        /* Nothing here writes to your files or transmits data. Guestbook & counter are stored locally in your browser's localStorage.
+           For privacy, clear localStorage to remove data. */
+
+    </script>
+</body>
+
+</html>
