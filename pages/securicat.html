@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Securicat</title>
+    <style>
+        :root {
+            --dark: #013649;
+            --green: #01a57b;
+            --light: #caf5c7;
+            --card: #143f39;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(120deg, gray, var(--green), var(--light));
+            color: var(--dark);
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0 0 10px;
+        }
+
+        section {
+            padding: 60px 8%;
+        }
+
+        .btn {
+            background: white;
+            color: var(--dark);
+            border: none;
+            padding: 12px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: rgb(228, 228, 228);
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(120deg, var(--light), var(--green), var(--dark));
+            color: var(--dark);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero img {
+            width: 100%;
+            border-radius: 16px;
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--card);
+            color: white;
+            padding: 20px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .feature-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* INFO */
+        .info {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        /* SIZES */
+        .sizes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .size-card {
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            background: var(--light);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .size-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+            z-index: 2;
+        }
+
+        .size-card img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        /* STATS */
+        .stats {
+            background: var(--dark);
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .stat-list p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* TESTIMONIALS */
+        .testimonial-viewport {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .testimonial-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
+
+        .testimonial-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+        }
+
+        .testimonial-container {
+            display: flex;
+            gap: 20px;
+            overflow: hidden;
+            scroll-behavior: smooth;
+            width: 100%;
+        }
+
+        .testimonial {
+            width: 280px;
+            min-width: 280px;
+            background: #143f39;
+            color: white;
+            padding: 20px;
+            border-radius: 14px;
+            flex-shrink: 0;
+        }
+
+        .testimonial-text {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+
+        .nav-btn {
+            background: #3bbf9b;
+            color: black;
+            border: none;
+            font-size: 26px;
+            padding: 8px 14px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0b2a25;
+            color: white;
+            padding: 50px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        footer a {
+            color: var(--green);
+            text-decoration: none;
+        }
+
+        @media (max-width: 800px) {
+
+            .hero,
+            .stats,
+            footer {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div>
+            <h1>Securicat</h1>
+            <h2>The most effective moderator.</h2>
+            <a href="http://www.inveracity.org/" class="btn">Buy Now!</a>
+        </div>
+        <img src="https://via.placeholder.com/500x350" alt="Cat on laptop">
+    </section>
+
+    <!-- INFO -->
+    <section class="info">
+        <h2>Securicat keeps you safe</h2>
+        <p>
+            Securicat monitors you day and night. Equipped with night vision,
+            Securicat works even in the darkest conditions.
+        </p>
+    </section>
+
+    <!-- ABOUT -->
+    <section>
+        <h2>About Securicat</h2>
+        <div class="features">
+            <div class="feature-card">
+                <img src="https://via.placeholder.com/300x200">
+                <h3>Complete Ad Blocking</h3>
+                <p>If you can’t see the screen, you can’t see the ads.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://via.placeholder.com/300x200">
+                <h3>Patented Keyboard Lockdown</h3>
+                <p>When Securicat sits on your keyboard, it is safe.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://via.placeholder.com/300x200">
+                <h3>Judgemental Looks™</h3>
+                <p>Automatically judges your browsing habits.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO -->
+    <section class="info">
+        <h2>Securicat goes beyond your digital life</h2>
+        <p>
+            The Securicat doesn't just secure your digital life; it monitors you day and night! Equipped with night vision, the Securicat can 
+            send glares your way in the darkest of conditions. There is no place the Securicat can't go - even bathrooms are no problem for its low-light 
+            sensors! 
+        </p>
+    </section>
+
+    <!-- SIZES -->
+    <section>
+        <h2>Find the Purrfect size for you!</h2>
+        <div class="sizes">
+            <div class="size-card">
+                <img src="https://via.placeholder.com/300x200">
+                <h3>Smol</h3>
+                <p>Compact security for small setups.</p>
+                <a href="http://www.inveracity.org/" class="btn">Add to Cart</a>
+            </div>
+            <div class="size-card">
+                <img src="https://via.placeholder.com/300x200">
+                <h3>Standard</h3>
+                <p>The most common and reliable model.</p>
+                <a href="http://www.inveracity.org/" class="btn">Add to Cart</a>
+            </div>
+            <div class="size-card">
+                <img src="https://via.placeholder.com/300x200">
+                <h3>Chonk</h3>
+                <p>Maximum coverage. Maximum judgment.</p>
+                <a href="http://www.inveracity.org/" class="btn">Add to Cart</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+    <div class="stat-list">
+        <p>🐾 <span class="counter" data-target="1063592382137">0</span> characters typed</p>
+        <p>🎥 <span class="counter" data-target="2953">0</span> videos interrupted</p>
+        <p>❤️ <span class="counter" data-target="98.4">0</span>% customer satisfaction</p>
+    </div>
+
+    <img src="https://via.placeholder.com/400x300" alt="Cat and owner">
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section>
+        <h2>Hear From Our Clients</h2>
+
+        <div class="testimonial-wrapper">
+            <button class="nav-btn" onclick="moveSlide(-1)">‹</button>
+
+            <div class="testimonial-viewport">
+                <div class="testimonial-track" id="testimonialTrack">
+
+                    <div class="testimonial">
+                        ⭐⭐⭐⭐⭐
+                        <p class="testimonial-text">I was addicted to my computer, but then came Securicat - I couldn't even touch my computer without fear.
+                        I am now 3 months computer-sober thanks to Securicat!</p>
+                        <strong>Name here</strong>
+                    </div>
+
+                    <div class="testimonial">
+                        ⭐⭐⭐⭐⭐
+                        <p class="testimonial-text">My keyboard is finally safe and covered in hair.</p>
+                        <strong>Patricia Stewart</strong>
+                    </div>
+
+                    <div class="testimonial">
+                        ⭐⭐⭐⭐⭐
+                        <p class="testimonial-text">I bought the Chonk edition; Securicat's rump is covering half the keyboard! 
+                            I can't type anything! 10/10</p>
+                        <strong>Bartholomew Smith</strong>
+                    </div>
+
+                    <div class="testimonial">
+                        ⭐⭐⭐⭐⭐
+                        <p class="testimonial-text">“Best purchase I’ve ever made.”</p>
+                        <strong>Percy Jones</strong>
+                    </div>
+
+                    <div class="testimonial">
+                        ⭐⭐⭐⭐⭐
+                        <p class="testimonial-text">I haven't had a moment of peace to myself since I've bought my Securicat. But hey, I'm no longer
+                            addicted to screen!</p>
+                        <strong>Name here</strong>
+                    </div>
+
+                    <div class="testimonial">
+                        ⭐⭐⭐⭐⭐
+                        <p class="testimonial-text">Securicat turned on airplane mode and disabled my keyboard, mousepad, screen, and volume during a
+                            zoom meeting, Thank Securicat!</p>
+                        <strong>Name here</strong>
+                    </div>
+
+                </div>
+            </div>
+
+            <button class="nav-btn" onclick="moveSlide(1)">›</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>
+            <h3>Want to purchase your Securicat?</h3>
+            <p>See offers from our trusted vendors!</p>
+            <p><a href="https://www.adoptapet.com/">Adopt-a-Pet</a></p>
+            <p><a href="https://www.petfinder.com/">Pet Finder</a></p>
+            <p><a href="http://www.safecatfoundationca.org/">Safe Cat Foundation</a></p>
+            <a href="http://www.inveracity.org/" class="btn">CONTACT US</a>
+        </div>
+        <img src="https://via.placeholder.com/350x250">
+    </footer>
+
+    <!-- Scirtps -->
+    <script> // number counter for stats page
+        const counters = document.querySelectorAll(".counter");
+
+        const animateCounter = (counter) => {
+            const target = parseFloat(counter.dataset.target);
+            const duration = 5000; // ms
+            const startTime = performance.now();
+
+            const update = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            const value = target * progress;
+            counter.textContent =
+                target % 1 === 0
+                ? Math.floor(value).toLocaleString()
+                : value.toFixed(1);
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                counter.textContent = target.toLocaleString();
+            }
+            };
+
+            requestAnimationFrame(update);
+        };
+
+        // Trigger when visible
+        const observer = new IntersectionObserver(
+            entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+                }
+            });
+            },
+            { threshold: 0.5 }
+        );
+
+        counters.forEach(counter => observer.observe(counter));
+    </script>
+
+    <script> // scrolling tags for testimonials 
+        const track = document.getElementById("testimonialTrack");
+        const cards = Array.from(track.children);
+        const cardWidth = cards[0].offsetWidth + 20;
+
+        let index = cards.length;
+
+        // Clone cards before & after
+        cards.forEach(card => {
+            track.appendChild(card.cloneNode(true));
+            track.insertBefore(card.cloneNode(true), track.firstChild);
+        });
+
+        // Initial position (centered on originals)
+        track.style.transform = `translateX(${-cardWidth * index}px)`;
+
+        function moveSlide(direction) {
+            index += direction;
+            track.style.transition = "transform 0.5s ease";
+            track.style.transform = `translateX(${-cardWidth * index}px)`;
+        }
+
+        track.addEventListener("transitionend", () => {
+            if (index <= 0) {
+                index = cards.length;
+                track.style.transition = "none";
+                track.style.transform = `translateX(${-cardWidth * index}px)`;
+            }
+
+            if (index >= cards.length * 2) {
+                index = cards.length;
+                track.style.transition = "none";
+                track.style.transform = `translateX(${-cardWidth * index}px)`;
+            }
+        });
+
+        // Auto-scroll
+        setInterval(() => {
+            moveSlide(1);
+        }, 4000);
+    </script>
+
+</body>
+</html>
