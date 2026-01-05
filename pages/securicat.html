@@ -75,8 +75,8 @@
         }
 
         .feature-card {
-            background: var(--card);
-            color: white;
+            background: var(--light);
+            color: var(--dark);
             padding: 20px;
             border-radius: 14px;
             text-align: center;
@@ -207,14 +207,29 @@
             text-decoration: none;
         }
 
-        @media (max-width: 800px) {
+        footer img {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            border-radius: 16px;
+        }
+
+        @media (max-width: 600px) {
 
             .hero,
             .stats,
             footer {
                 grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+
+            footer img {
+                max-width: 260px;
+                margin-top: 20px;
             }
         }
+
     </style>
 </head>
 
@@ -223,38 +238,43 @@
     <!-- HERO -->
     <section class="hero">
         <div>
-            <h1>Securicat</h1>
+            <h1>Securicat®</h1>
             <h2>The most effective moderator.</h2>
             <a href="http://www.inveracity.org/" class="btn">Buy Now!</a>
         </div>
-        <img src="https://via.placeholder.com/500x350" alt="Cat on laptop">
+        <img src="./securicat_images/intro_cat.jpg" alt="Cat on laptop">
     </section>
 
     <!-- INFO -->
     <section class="info">
         <h2>Securicat keeps you safe</h2>
         <p>
-            Securicat monitors you day and night. Equipped with night vision,
-            Securicat works even in the darkest conditions.
+            With the Securicat, not only do you get compleate ad blocking technology,
+            but also our patented keyboard lock and heating system! Seruricat will come
+            with the ability to open and close random tabs for added anonmynity! The 
+            Securicat will know precisely when you're about to get up, letting Securicat 
+            protect you, not only form the dangers of the internet, but from real life too! 
+            Sleep easy with the Sercuricat's surveilance. 
+
         </p>
     </section>
 
     <!-- ABOUT -->
     <section>
-        <h2>About Securicat</h2>
+        <!-- <h2>About Securicat</h2> --> 
         <div class="features">
             <div class="feature-card">
-                <img src="https://via.placeholder.com/300x200">
+                <img src="./securicat_images/feature_ad_blocking.jpg">
                 <h3>Complete Ad Blocking</h3>
                 <p>If you can’t see the screen, you can’t see the ads.</p>
             </div>
             <div class="feature-card">
-                <img src="https://via.placeholder.com/300x200">
+                <img src="./securicat_images/feature_keyboard_lock.jpg">
                 <h3>Patented Keyboard Lockdown</h3>
                 <p>When Securicat sits on your keyboard, it is safe.</p>
             </div>
             <div class="feature-card">
-                <img src="https://via.placeholder.com/300x200">
+                <img src="./securicat_images/feature_glare.jpg">
                 <h3>Judgemental Looks™</h3>
                 <p>Automatically judges your browsing habits.</p>
             </div>
@@ -276,19 +296,19 @@
         <h2>Find the Purrfect size for you!</h2>
         <div class="sizes">
             <div class="size-card">
-                <img src="https://via.placeholder.com/300x200">
+                <img src="./securicat_images/size_smol.jpg">
                 <h3>Smol</h3>
                 <p>Compact security for small setups.</p>
                 <a href="http://www.inveracity.org/" class="btn">Add to Cart</a>
             </div>
             <div class="size-card">
-                <img src="https://via.placeholder.com/300x200">
+                <img src="./securicat_images/size_normal.jpg">
                 <h3>Standard</h3>
                 <p>The most common and reliable model.</p>
                 <a href="http://www.inveracity.org/" class="btn">Add to Cart</a>
             </div>
             <div class="size-card">
-                <img src="https://via.placeholder.com/300x200">
+                <img src="./securicat_images/size_chonk.jpg">
                 <h3>Chonk</h3>
                 <p>Maximum coverage. Maximum judgment.</p>
                 <a href="http://www.inveracity.org/" class="btn">Add to Cart</a>
@@ -304,12 +324,12 @@
         <p>❤️ <span class="counter" data-target="98.4">0</span>% customer satisfaction</p>
     </div>
 
-    <img src="https://via.placeholder.com/400x300" alt="Cat and owner">
+    <!--<img src="..." alt="Cat and owner">-->
     </section>
 
     <!-- TESTIMONIALS -->
     <section>
-        <h2>Hear From Our Clients</h2>
+        <h2>Thousands of 5-Star reviews</h2>
 
         <div class="testimonial-wrapper">
             <button class="nav-btn" onclick="moveSlide(-1)">‹</button>
@@ -374,7 +394,7 @@
             <p><a href="http://www.safecatfoundationca.org/">Safe Cat Foundation</a></p>
             <a href="http://www.inveracity.org/" class="btn">CONTACT US</a>
         </div>
-        <img src="https://via.placeholder.com/350x250">
+        <img src="./securicat_images/footer_cat.jpg" alt="The cutest cat EVER on laptop">
     </footer>
 
     <!-- Scirtps -->
